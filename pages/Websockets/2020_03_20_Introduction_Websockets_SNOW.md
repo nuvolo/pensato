@@ -1,6 +1,4 @@
-# Websockets in ServiceNow
-
-## Can you use websockets in ServiceNow?
+# Can you use websockets in ServiceNow?
 
 tldr;
 Yes! But be advised that we are in undocumented waters, APIs are subject to change, you are all alone here, etc.
@@ -9,7 +7,7 @@ This will contain 3 parts - Introduction: Finding the socket in Angular.js, Impl
 
 I will assume that you know what web sockets are and why/when to use them. The goal is to see how you can use Websockets in _vanilla.js_ anywhere that is needed. Let's look at how you can leverage them in your project.
 
-## Finding the socket - \spUtil.recordWatch
+## Finding the socket - spUtil.recordWatch
 
 First stop on the web socket train is the Service Portal, where we find the only supported mechanism (emphasis on _supported_, as the platform itself uses it elsewhere) for a proper websocket in ServiceNow. AND... we find it in Angular.js of all places.
 
