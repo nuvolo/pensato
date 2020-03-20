@@ -1,0 +1,8 @@
+# Websockets in ServiceNow
+
+## tldr; 
+Can you use websockets in ServiceNow? 
+Yes! But be advised that we are in undocumented waters, APIs are subject to change, etc.
+
+## The details
+I will assume that you know what web sockets are and why/when to use them, and explore  

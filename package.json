@@ -1,0 +1,22 @@
+{
+  "name": "pensato",
+  "version": "0.1.0",
+  "description": "Technical thoughts by technical people",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nuvolo/pensato.git"
+  },
+  "keywords": [
+    "ServiceNow"
+  ],
+  "author": "Multiple",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nuvolo/pensato/issues"
+  },
+  "homepage": "https://github.com/nuvolo/pensato#readme"
+}
