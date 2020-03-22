@@ -4,7 +4,7 @@ This article reviews the variety of techniques that can be used to run asynchron
 
 ## Async Business Rule
 
-The most commonly understood ways to process logic asynchronously, the Async BR is a fairly well understood tool to execute some long-running logic when you don't want your database transactions to take too long (which can result in a poor UX)
+The most commonly understood way to process logic asynchronously, the Async BR, is a fairly well understood tool to execute some long-running logic when you don't want your database transactions to take too long (which can result in a poor UX)
 
 You should use an Async BR when you have long running logic that needs to run in response to a database transaction (EG: Fetch latitude/longitude from an external API when an address is entered or changed). 
 
@@ -26,7 +26,7 @@ Some downsides to Schedule Workers are that they do not allow for inputs, theref
 ### How to use it
 1. Create a Script Scheduled Job (Leave it as `inactive`) -- write your logic here
 2. From a script where you want to launch a new thread, include the following snippet:
-```
+```javascript
 var job = new GlideRecord("sysauto_script");
 job.get("{sys_id of scheduled job here}");
 
@@ -51,13 +51,15 @@ Therefore, ServiceNow's Script Action system should not be the tool we reach for
 
 So, what **should** you use Script Actions and Events for? Events should be used to send a signal out to the system that *something* happened. For example, if I wanted developers to be able to respond to the fact that a Change Request has closed, but I don't want them to write business rules on my Change Request table -- I could fire an event to notify that a Change Request has closed, along with the necessary information. Then, other developers could run extremely short-running logic to respond to this event, in a Script Action. 
 
+> **Note**: There is no `How to use it` section here because Events should not be used for long-running processing in the background. Period.
+
 By now, the next question you might be asking is -- OK, so what if I have to run long running logic, in near-real-time, and I need to pass inputs to the logic? Don't tell ICE, because here is where things get a bit more... undocumented. 
 
 ## Hierarchical Progress Workers
 
-Hierarchical Progress Workers, or HPW for short, are an extremely flexible way of running asynchronous logic when you need to carefully control the inputs. In doing so, dynamic inputs can be passed in memory rather than storing them in a queue table (which would be necessary to get different results on each execution using the Schedule Worker method).
+Hierarchical Progress Workers, or HPW for short, are an extremely flexible way of running asynchronous logic when you need to carefully control the inputs. Dynamic inputs can be passed in memory rather than storing them in a queue table (which would be necessary to get different results on each execution using the Schedule Worker method).
 
-
+The downfall of HPW as compared to Schedule Workers, is that the system reserves the right to cancel these at any time, which means it is up to the developer to ensure that requests made to HPWs are robust enough to handle being cancelled. 
 
 ### How to use it
 
