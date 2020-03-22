@@ -54,3 +54,26 @@ So, what **should** you use Script Actions and Events for? Events should be used
 By now, the next question you might be asking is -- OK, so what if I have to run long running logic, in near-real-time, and I need to pass inputs to the logic? Don't tell ICE, because here is where things get a bit more... undocumented. 
 
 ## Hierarchical Progress Workers
+
+Hierarchical Progress Workers, or HPW for short, are an extremely flexible way of running asynchronous logic when you need to carefully control the inputs. In doing so, dynamic inputs can be passed in memory rather than storing them in a queue table (which would be necessary to get different results on each execution using the Schedule Worker method).
+
+
+
+### How to use it
+
+1. Put your desired async logic into a Script Include method
+2. From a script where you want to launch a new thread, include the following snippet:
+```javascript
+var worker = new GlideScriptedHierarchicalWorker();
+worker.setProgressName('Worker Name Here');
+worker.setBackground(true);
+worker.setScriptIncludeName('scope.{name_of_script_include}');
+worker.putConstructorArg(
+    {name_of_constructor_argument}, 
+    {value_of_constructor_argument});
+worker.setScriptIncludeMethod('{name_of_method}');
+worker.putMethodArg(
+    {name_of_method_argument},
+    {value_of_method_argument});
+worker.start();
+```
