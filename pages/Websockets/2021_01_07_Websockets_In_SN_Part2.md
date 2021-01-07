@@ -85,6 +85,6 @@ Now make update to the `incident` table and see the magic!
 
 ## Conclusion
 
-So there you have it. Native socket functionality without any sniff of Angular.js (looking at you `recordWatcher`). As mentioned above, we have published a thin wrapper over `amb, and would welcome your feedback and contributions. You can see the [source code on Github](https://github.com/nuvolo/sn-socket). `sn-socket` wraps all of the things and exposes a `subscribe` method, for all of your Websocket needs. Let us know what you think.
+So there you have it. Native socket functionality without any sniff of Angular.js (looking at you `recordWatcher`). As mentioned above, we have published a thin wrapper over `amb`, and would welcome your feedback and contributions. You can see the [source code on Github](https://github.com/nuvolo/sn-socket). `sn-socket` wraps all of the things and exposes a `subscribe` method, for all of your Websocket needs. Let us know what you think.
 
 In our last post of the series, we will see how Agent Workspace does a riff on this infrastructure and how you can leverage this information to bend the ServiceNow platform to your will. Until next time!
