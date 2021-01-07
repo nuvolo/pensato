@@ -8,7 +8,7 @@ To get started right away with a vanilla js Websocket in ServiceNow, you can use
 
 ## Websocket Infrastructure in ServiceNow
 
-In order to use a Websocket, the client `"...has to start the WebSocket handshake process by contacting the server and requesting a WebSocket connection"` [source](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#the_websocket_handshake). The server, if configured correctly, will respond with an upgraded connection. 
+In order to use a Websocket, the client `"...has to start the WebSocket handshake process by contacting the server and requesting a WebSocket connection"` ([source](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#the_websocket_handshake)). The server, if configured correctly, will respond with an upgraded connection. 
 
 Fortunately for our purposes, the infrastructure is already in place. ServiceNow uses a WebSocket to power its `amb` api. If you navigate to any plain olde ServiceNow backend and open the Network tab, you can see the upgraded connection
 
